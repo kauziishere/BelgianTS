@@ -4,7 +4,7 @@ import numpy as np
 from skimage import data, io, transform, color
 from skimage.exposure import rescale_intensity
 import matplotlib.pyplot as plt
-class ClassifySigns:
+class prepDataset:
 	labels = []
 	images = []
 	"""
@@ -72,9 +72,9 @@ class ClassifySigns:
 		images = np.array(self.images)
 		labels = np.array(self.labels)
 		np.save('Images',images.astype(np.float))
-		np.save('Labels',labels.astype(np.float))
+		np.save('Labels',labels)
 if __name__ == "__main__":
-	bs = ClassifySigns()
+	bs = prepDataset()
 	bs.load_data('/home/kauzi/Documents/Data For ML/BelgiumSigns/Training')
 	#bs.uniqueImages()
 	#bs.visualizeImages([250, 466, 2591, 3577, 4000], typ = 'rgb')
